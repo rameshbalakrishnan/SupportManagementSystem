@@ -16,6 +16,7 @@ import { LoginService } from 'src/app/shared/service/loginservice';
 })
 export class LoginComponent implements OnInit {
   returndata:any;
+  list: any;
   login:boolean;
   @Input()formData: FormData[];
   form: FormGroup;
@@ -45,11 +46,25 @@ export class LoginComponent implements OnInit {
       data => {
         console.log(data);
         this.returndata = data;
+        this.list = this.returndata.enityList;
+        console.log(this.list);
+        console.log(this.list[0].role);
         if(this.returndata.responsecode === 0){
          this.login = true;
         }
         else{
-          this.router.navigate(['/register'])
+          if(this.list[0].role === 1)
+          {
+          this.router.navigate(['/admin'])
+          }
+         else if(this.list[0].role === 2)
+          {
+          this.router.navigate(['/user'])
+          }
+          else if(this.list[0].role === 3)
+          {
+            this.router.navigate(['/supportengineer'])
+          }
          }
        });
    }

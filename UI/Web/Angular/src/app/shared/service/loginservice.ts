@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class LoginService {
   user : string;
-  readonly rootURL = "http://localhost:5000/api/register"
+  readonly rootURL = "http://localhost:5000/api/login"
   constructor(private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({

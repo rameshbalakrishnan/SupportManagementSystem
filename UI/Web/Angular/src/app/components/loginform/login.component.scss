@@ -17,10 +17,30 @@ form {
     color: red
   }
 
-  button {
-    margin-top: 10px;
-    width: 100%
-  }
+  // button {
+  //   margin-top: 10px;
+  //   width: 100%
+  // }
 }
 h1 #welcome{ display:none;}
 
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button {
+  background-color: rgb(53, 135, 212);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.8;
+}

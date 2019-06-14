@@ -63,11 +63,11 @@ namespace API.Service.Controllers
              IEnumerable<Users> Checklogin = _accountRepository.FindByCondition(x => (x.Email == userdata.Email || x.Mobile == userdata.Mobile) && x.Password == userdata.Password );
             if (Checklogin != null && Checklogin.Count() > 0)
             {
-                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "UserName and Password already exitst!", Entity = null, EnityList = null };
+                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success", Entity = null, EnityList = Checklogin };
             }
             else
             {
-                return new ResponseEntity<Users> { Responsecode = 0, ResponseMessage = "Success!", Entity = null, EnityList = null };
+                return new ResponseEntity<Users> { Responsecode = 0, ResponseMessage = "Invalid Login!", Entity = null, EnityList = Checklogin };
             }
            
         }

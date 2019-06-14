@@ -18,9 +18,7 @@ export const LoginForm: FormData[] = [
     valueType: 'password',
     controlType: 'text',
     validators: {
-      required: true,
-      minlength: 7,
-      maxlength: 10
+      required: true
     }
   },
 ];

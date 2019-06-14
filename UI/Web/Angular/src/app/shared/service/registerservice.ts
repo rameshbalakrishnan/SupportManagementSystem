@@ -33,4 +33,7 @@ register(form : any ) {
   console.log(Data);
   return this.http.post(this.rootURL + `/add/`, Data, this.httpOptions);
 }
+SelectAll( ) {
+  return this.http.get(this.rootURL + `/getall/`, this.httpOptions);
+}
 }
