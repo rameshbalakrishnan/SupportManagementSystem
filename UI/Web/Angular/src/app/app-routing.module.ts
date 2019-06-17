@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { SupportEngineerComponent } from './components/supportengineer/supportengineer.component';
+import { UserEditComponent } from './components/UserEdit/useredit.component';
 //import { AuthGuard } from './auth.guard';
 const routes: Routes = [
    // { path: '', component: LoginComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
    { path: "login", component: LoginComponent},
    { path: "admin", component: AdminComponent},  //, canActivate: [AuthGuard]
    { path: "user", component: UserComponent},
-   { path: "supportengineer", component: SupportEngineerComponent}
+   { path: "supportengineer", component: SupportEngineerComponent},
+   { path: "useredit", component: UserEditComponent}
    // { path: '**', redirectTo: '' }//,
 ];
 //RouterModule.forRoot(routes)

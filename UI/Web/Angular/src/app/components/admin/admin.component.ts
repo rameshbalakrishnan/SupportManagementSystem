@@ -9,9 +9,27 @@ import { RegisterService } from 'src/app/shared/service/registerservice';
 })
 export class AdminComponent implements OnInit {
  Userlist:any;
-  constructor(private router: Router,private RegService: RegisterService) {}
+ Msg : boolean;
+ UpdateMsg : boolean;
+ Updatelists : any
+  constructor(private router: Router,private RegService: RegisterService,private routeparams: ActivatedRoute) {}
 
   ngOnInit() {
+    this.Msg = false;
+    this.UpdateMsg = false;
+    this.routeparams.queryParams.subscribe(params => {
+      this.Updatelists = params['Updatelist'];
+      if(params['Updatelist'] == 1)
+      {
+        this.UpdateMsg = true;
+      }
+    });
+    this.RegService.SelectAll().subscribe(
+      data => {
+        console.log(data);
+        this.Userlist = data;
+        console.log(this.Userlist.enityList.length);
+       });
   }
   onUserList()
   {
@@ -21,6 +39,28 @@ export class AdminComponent implements OnInit {
           this.Userlist = data;
           console.log(this.Userlist.enityList.length);
          });
+  }
+  onDelete(email)
+  {
+    this.RegService.delete(email).subscribe(
+      data => {
+        this.RegService.SelectAll().subscribe(
+          data => {
+            console.log(data);
+            this.Userlist = data;
+            console.log(this.Userlist.enityList.length);
+           });
+           this.Msg = true;
+       });
+  }
+  onUpdate(email)
+  {
+    console.log(email);
+    this.router.navigate(['useredit'], {
+      queryParams: {
+        email:  email
+      }
+    });
   }
   onRequestTicketList()
   {

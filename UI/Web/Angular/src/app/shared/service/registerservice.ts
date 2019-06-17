@@ -33,6 +33,43 @@ register(form : any ) {
   console.log(Data);
   return this.http.post(this.rootURL + `/add/`, Data, this.httpOptions);
 }
+update(form : any ) {
+  console.log(form);
+  var Data =
+  {
+      FirstName: form.firstName,
+      LastName: form.LastName,
+      Email: form.Email,
+      Mobile: form.Mobile
+      // ,
+      // IsActive: 1,
+      // IsDeleted: 0,
+      // Role: 2
+  };
+
+  console.log(Data);
+  return this.http.put(this.rootURL + `/update/`, Data, this.httpOptions);
+}
+delete(Email) {
+  console.log(Email);
+  var Data =
+  {
+    Email: Email
+  };
+
+  console.log(Data);
+  return this.http.post(this.rootURL + `/delete/`, Data, this.httpOptions);
+}
+selectEmailId(Email)
+{
+  console.log(Email);
+  var Data =
+  {
+    Email: Email
+  };
+  console.log(Data);
+  return this.http.post(this.rootURL + '/GetbyEmailID/', Data, this.httpOptions);
+}
 SelectAll( ) {
   return this.http.get(this.rootURL + `/getall/`, this.httpOptions);
 }

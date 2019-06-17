@@ -12,6 +12,7 @@ import { LoginService } from './shared/service/loginservice';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { SupportEngineerComponent } from './components/supportengineer/supportengineer.component';
+import { UserEditComponent } from './components/UserEdit/useredit.component';
 //import { AuthService } from './auth.service';
 //import { AuthGuard } from './auth.guard';
 
@@ -29,7 +30,8 @@ import { SupportEngineerComponent } from './components/supportengineer/supporten
     RegisterComponent,
     AdminComponent,
     UserComponent,
-    SupportEngineerComponent
+    SupportEngineerComponent,
+    UserEditComponent
   ],
   entryComponents: [
     LoginComponent,

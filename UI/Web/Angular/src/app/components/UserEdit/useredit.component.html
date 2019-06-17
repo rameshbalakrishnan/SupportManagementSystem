@@ -1,11 +1,11 @@
-<form [formGroup]="form" (submit)="submitForm()" name="f">
+<form [formGroup]="form" (submit)="submitForm()">
 
     <ng-template ngFor let-input [ngForOf]="formData">
   
-      <ng-container [ngSwitch]="input.controlType">
+      <ng-container [ngSwitch]="input.controlType" >
         <ng-template [ngSwitchCase]="'text'">
           <div class="form-group">
-            <label [for]="input.controlName"> {{input.controlName}}</label>
+            <label [for]="input.controlName" > {{input.controlName}}</label>
             <input [formControlName]="input.controlName"
                    [type]="input.valueType"
                    [name]="input.controlName"
@@ -39,7 +39,7 @@
     </ng-template>
     <!-- [disabled]="form.invalid" -->
     <button type="submit" >
-      Submit
+      Update
     </button>
     <div *ngIf="submitted">
       <div class = "error" *ngIf="Register == true">Registration Success</div>

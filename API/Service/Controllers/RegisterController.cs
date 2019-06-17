@@ -36,9 +36,7 @@ namespace API.Service.Controllers
         {
             try
             {
-                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindAll() };
-                // return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindAll().Select(x=>x.Password = Decrypt(x.Password)).AsEnumerable() };
-                //return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindAll().Select(x=>x.Password = AESCryptography.Decrypt(x.Password)).ToList() };
+                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindAll().Where(x=>x.Role != 1).ToList() };
             }
             catch (Exception)
             {
@@ -53,6 +51,20 @@ namespace API.Service.Controllers
             try
             {
                 return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x => x.InternalId == id) };
+            }
+            catch (Exception)
+            {
+                return new ResponseEntity<Users> { Responsecode = 0, ResponseMessage = "Error during fetching records!", Entity = null, EnityList = null };
+            }
+        }
+         //Get EmailId
+        [HttpPost]
+         [Route("GetbyEmailID")]
+        public ResponseEntity<Users> GetbyEmailID([FromBody]Users userdata)
+        {
+            try
+            {
+                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x => x.Email == userdata.Email) };
             }
             catch (Exception)
             {
@@ -193,13 +205,13 @@ namespace API.Service.Controllers
         //Updation
         [HttpPut]
         [Route("update")]
-        public ResponseEntity<Users> update(ObjectId id, [FromBody]Users userdata)
+        public ResponseEntity<Users> update([FromBody]Users userdata)
         {
             try
             {
                 var update = Builders<Users>.Update
-             .Set(it => it.ModifiedDate, DateTime.Now);
-                _accountRepository.Update(x => x.InternalId == id, update);
+             .Set(it => it.ModifiedDate, DateTime.Now).Set(it => it.Email,userdata.Email).Set(it => it.FirstName,userdata.FirstName).Set(it => it.LastName,userdata.LastName).Set(it => it.Mobile,userdata.Mobile);
+                _accountRepository.Update(x => x.Email == userdata.Email, update);
                 return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = null };
             }
             catch (Exception)
@@ -211,12 +223,12 @@ namespace API.Service.Controllers
         //Deletion
         [HttpPost]
         [Route("delete")]
-        public ResponseEntity<Users> delete(ObjectId id)
+        public ResponseEntity<Users> delete([FromBody]Users userdata)
         {
             try
             {
 
-                _accountRepository.Delete(x => x.InternalId == id);
+                _accountRepository.Delete(x => x.Email == userdata.Email);
 
                 return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = null };
             }

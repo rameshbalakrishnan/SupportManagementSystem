@@ -39,12 +39,15 @@ namespace DAL.Data
 
         public void Update(Expression<Func<T, bool>> expression, UpdateDefinition<T> entity)
         {
+         
             this._context.CommonEntity.UpdateOne(expression, entity);
         }
 
         public void Delete(Expression<Func<T, bool>> expression)
         {
+   
             this._context.CommonEntity.DeleteOne(expression);
+
         }
         public void BuklkInsert(IEnumerable<T> items)
         {

@@ -29,6 +29,7 @@ import { Router,ActivatedRoute ,Params} from '@angular/router';
 export class RegisterComponent implements OnInit {
  EmailValue : any;
  MobileValue : any;
+ Email :any;
  returndata:any;
   Emailexitst : boolean;
   Mobileexitst : boolean;
@@ -38,7 +39,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   submitted: boolean;
 
-  constructor(private RegService: RegisterService,private router: Router) {}
+  constructor(private RegService: RegisterService,private router: Router,private routeparams: ActivatedRoute) {}
 
   ngOnInit() {
     this.Emailexitst = false;
@@ -51,7 +52,6 @@ export class RegisterComponent implements OnInit {
         console.log(formControl);
       formGroup[formControl.controlName] = new FormControl('');
     });
-
     this.form = new FormGroup(formGroup);
   }
 
