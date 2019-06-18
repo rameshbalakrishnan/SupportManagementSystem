@@ -13,6 +13,10 @@ import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { SupportEngineerComponent } from './components/supportengineer/supportengineer.component';
 import { UserEditComponent } from './components/UserEdit/useredit.component';
+import { AdminDasboardComponent } from './components/admindashboard/admindashboard.component';
+import { UserListComponent } from './components/UserList/UserList.component';
+import { AdminDasboardoOldComponent } from './components/admindashboard old/admindashboard.component';
+import { RequestService } from './shared/service/requestservice';
 //import { AuthService } from './auth.service';
 //import { AuthGuard } from './auth.guard';
 
@@ -31,7 +35,10 @@ import { UserEditComponent } from './components/UserEdit/useredit.component';
     AdminComponent,
     UserComponent,
     SupportEngineerComponent,
-    UserEditComponent
+    UserEditComponent,
+    AdminDasboardComponent,
+    UserListComponent,
+    AdminDasboardoOldComponent
   ],
   entryComponents: [
     LoginComponent,
@@ -53,7 +60,7 @@ import { UserEditComponent } from './components/UserEdit/useredit.component';
     //   { enableTracing: true } // <-- debugging purposes only
     // )
   ],
-  providers: [RegisterService,LoginService],//,AuthGuard
+  providers: [RegisterService,LoginService,RequestService],//,AuthGuard
   bootstrap: [AppComponent]
 })
 export class AppModule { }

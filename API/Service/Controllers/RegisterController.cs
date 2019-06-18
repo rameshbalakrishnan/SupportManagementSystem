@@ -46,11 +46,40 @@ namespace API.Service.Controllers
         }
         //Get Id
         [HttpGet]
+        [Route("getid")]
         public ResponseEntity<Users> GetbyID(ObjectId id)
         {
             try
             {
                 return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x => x.InternalId == id) };
+            }
+            catch (Exception)
+            {
+                return new ResponseEntity<Users> { Responsecode = 0, ResponseMessage = "Error during fetching records!", Entity = null, EnityList = null };
+            }
+        }
+         //Get ActiveUserCount
+        [HttpGet]
+         [Route("ActiveUserCount")]
+        public ResponseEntity<Users> ActiveUserCount()
+        {
+            try
+            {
+                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x=>x.IsActive == true) };
+            }
+            catch (Exception)
+            {
+                return new ResponseEntity<Users> { Responsecode = 0, ResponseMessage = "Error during fetching records!", Entity = null, EnityList = null };
+            }
+        }
+         //Get InActiveUserCount
+        [HttpGet]
+         [Route("InActiveUserCount")]
+        public ResponseEntity<Users> InActiveUserCount()
+        {
+            try
+            {
+                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x=>x.IsActive == false) };
             }
             catch (Exception)
             {

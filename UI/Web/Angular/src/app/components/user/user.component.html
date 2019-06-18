@@ -1,3 +1,60 @@
-<h1 id="welcome">Welcome to User</h1>
-<button  type = "submit" (click)="onMyRequestTicketList()">My Request</button>
-<button  type = "submit" (click)="onLogout()">logout</button>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+        <header class="page-header">
+                <nav class="menu">
+                        <ol>
+                                <li class="menu-item">
+                                        <ol class="sub-menu">
+                                                <li class="menu-item">
+                                                        <a  (click)="onMyRequestTicketList()">My Request</a>
+                                                        <a  (click)="onLogout()">logout</a>
+                                                </li>
+                                        </ol>
+                                </li>
+                        </ol>
+                </nav>
+        </header>
+        <section class="page-content">
+                <h1 id="welcome">Welcome to User Dashboard</h1>
+                <div *ngIf="Userlist.enityList.length > 0">
+                        <h1>Request List</h1>
+                        <br>
+                        <table id="customers">
+                                <thead>
+                                        <tr>
+                                                <th>REQUEST SHORT DESCRIPTION</th>
+                                                <th>REQUEST DESCRIPTION</th>
+                                                <th>REQUEST DATE</th>
+                                                <th>REQUEST PRIORITY</th>
+                                                <th>REQUEST STATUS</th>
+                                                <th>REQUEST MODULE</th>
+                                                <!-- <th>EDIT</th>
+                                                <th>DELETE</th> -->
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <!-- (click)="onDelete(emp.Id)" -->
+                                        <tr *ngFor="let emp of Userlist.enityList">
+                                                <td class="example">{{emp.requestShortDescription}}</td>
+                                                <td class="example">{{emp.requestDescription}}</td>
+                                                <td class="example">{{emp.requestDate}}</td>
+                                                <td class="example">{{emp.requestPriority}}</td>
+                                                <td class="example">{{emp.requestStatus}}</td>
+                                                <td class="example">{{emp.requestModule}}</td>
+                                                <!-- <td><button class="fa fa-pencil" tooltip="Edit" placement="top"
+                                                                (click)="onUpdate(emp.email)" show-delay="500"></button>
+                                                </td>
+                                                <td><button class="fa fa-trash-o" tooltip="Delete" placement="top"
+                                                                (click)="onDelete(emp.email)" show-delay="500"></button>
+                                                </td> -->
+                                        </tr>
+                                </tbody>
+                        </table>
+                        <div class="error" *ngIf="Msg == true">Deleted Successfull</div>
+                        <div class="error" *ngIf="UpdateMsg == true">Updated Successfull</div>
+                </div>
+        </section>
+</body>

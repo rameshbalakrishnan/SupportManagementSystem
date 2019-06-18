@@ -10,7 +10,7 @@ export const UserEditForm: FormData[] = [
       validators: {
         required: true,
         maxlength: 50,
-        pattern: /^[a-zA-Z]+$/,
+        pattern: /^[a-zA-Z ]+$/,
         message: 'Accept only Alphabet'
       }
     },
@@ -22,7 +22,7 @@ export const UserEditForm: FormData[] = [
       validators: {
         required: true,
         maxlength: 50,
-        pattern: /^[a-zA-Z]+$/,
+        pattern: /^[a-zA-Z ]+$/,
         message: 'Accept only Alphabet'
       }
     },

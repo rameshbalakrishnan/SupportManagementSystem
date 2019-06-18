@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 id="welcome">Welcome to admin Dashboard</h1>
+<button  type = "submit"  (click)="onUserList()">User List</button>
+<button  type = "submit" (click)="onRequestTicketList()">Request List</button>
+<button  type = "submit" (click)="onLogout()">logout</button>
+
+<table>
+    <tr>
+        <td>
+<h3>User Detail Dashboard</h3>
+<br>
+<table id="customers">
+    <thead>
+                <tr>
+                   <td colspan = "2"  class="header"> Total User</td>
+                </tr>
+    </thead> 
+    <thead>
+       <tr>
+          <th tooltip="Active User" >Active</th>
+          <th>InActive</th>
+      </tr>
+    </thead>
+    <tbody>
+            <!-- <tr *ngFor="let emp of Userlist.enityList"> -->
+
+                <tr>
+                    <td class="example" ><a (click)=onActiveUserList()>{{this.ActiveCount}}</a></td>
+                    <td class="example"><a  (click)=onInActiveUserList()>{{this.InActiveCount}}</a></td>
+            </tr>
+               </tbody>
+               <tfoot>
+                    <tr>
+                         <td colspan = "2" style="text-align: center" class="header"> <a  [routerLink]="['/admin']"> View User</a> </td> 
+                    </tr>
+        </tfoot> 
+               </table>   
+                    </td>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <td>
+<h3>Request Detail Dashboard</h3>
+<br>
+<table id="customers">
+        <thead>
+                <tr>
+                   <td colspan = "4"  class="header"> Total Request</td>
+                </tr>
+             </thead>
+             <tbody>
+                    <tr>
+                            <th>Not Started</th>
+                            <th>Hold-on</th>
+                            <th>In-Progress</th>
+                            <th>Completed</th>
+                    </tr>
+                 </tbody>
+    <tbody>
+        <tr >
+       <td class="example">10</td>
+       <td class="example">10</td>
+       <td class="example">10</td>
+       <td class="example">10</td>
+       </tr>
+  </tbody>
+  <tfoot>
+        <tr>
+                <td colspan = "4" class="header" style="text-align: center"> <a [routerLink]="['/admin']"> View Request</a> </td> 
+        </tr>
+</tfoot> 
+  </table> 
+</td>
+</tr>
+</table>
+ 

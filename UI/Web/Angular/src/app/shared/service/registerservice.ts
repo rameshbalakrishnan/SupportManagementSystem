@@ -73,4 +73,10 @@ selectEmailId(Email)
 SelectAll( ) {
   return this.http.get(this.rootURL + `/getall/`, this.httpOptions);
 }
+UserActiveList( ) {
+  return this.http.get(this.rootURL + `/ActiveUserCount/`, this.httpOptions);
+}
+UserInActiveList( ) {
+  return this.http.get(this.rootURL + `/InActiveUserCount/`, this.httpOptions);
+}
 }

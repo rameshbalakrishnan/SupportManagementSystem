@@ -37,8 +37,7 @@ namespace API.Service
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
             services.AddTransient<ICommonRepo<Users>, CommonRepo<Users>>();
-          //  services.AddTransient<ICommonRepo<Users>, CommonRepo<Users>>();
-
+            services.AddTransient<ICommonRepo<Request>, CommonRepo<Request>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

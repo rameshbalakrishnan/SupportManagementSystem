@@ -42,20 +42,24 @@ export class LoginComponent implements OnInit {
       return;
   }
   else{
+    console.log('hianu');
     this.LogService.login(this.form.value).subscribe(
       data => {
         console.log(data);
         this.returndata = data;
         this.list = this.returndata.enityList;
-        console.log(this.list);
-        console.log(this.list[0].role);
-        if(this.returndata.responsecode === 0){
+        if(this.returndata.responsecode === "0"){
          this.login = true;
+         return;
         }
         else{
-          if(this.list[0].role === 1)
+          if(this.returndata.responseMessage === "Invalid Login!"){
+            this.login = true;
+            return;
+           }
+         else if(this.list[0].role === 1)
           {
-          this.router.navigate(['/admin'])
+          this.router.navigate(['/admindashboard'])//admin
           }
          else if(this.list[0].role === 2)
           {

@@ -7,6 +7,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { UserComponent } from './components/user/user.component';
 import { SupportEngineerComponent } from './components/supportengineer/supportengineer.component';
 import { UserEditComponent } from './components/UserEdit/useredit.component';
+import { AdminDasboardComponent } from './components/admindashboard/admindashboard.component';
+import { UserListComponent } from './components/UserList/UserList.component';
+import { AdminDasboardoOldComponent } from './components/admindashboard old/admindashboard.component';
 //import { AuthGuard } from './auth.guard';
 const routes: Routes = [
    // { path: '', component: LoginComponent },
@@ -15,7 +18,10 @@ const routes: Routes = [
    { path: "admin", component: AdminComponent},  //, canActivate: [AuthGuard]
    { path: "user", component: UserComponent},
    { path: "supportengineer", component: SupportEngineerComponent},
-   { path: "useredit", component: UserEditComponent}
+   { path: "useredit", component: UserEditComponent},
+   { path: "admindashboard" , component: AdminDasboardComponent},
+   { path: "userlist", component: UserListComponent},
+   { path: "admindashboardold",component:AdminDasboardoOldComponent}
    // { path: '**', redirectTo: '' }//,
 ];
 //RouterModule.forRoot(routes)
