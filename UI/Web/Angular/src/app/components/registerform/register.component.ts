@@ -79,4 +79,15 @@ export class RegisterComponent implements OnInit {
       });
   }
   }
+  onLogin()
+  {
+    this.router.navigate(['/login']) 
+  }
+  onClear()
+  {
+  }
+  onBack()
+  {
+    this.router.navigate(['/login']) 
+  }
 }

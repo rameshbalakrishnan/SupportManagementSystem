@@ -16,7 +16,7 @@
       <ng-template [ngSwitchCase]="'text'">
         <div>
           <!-- <label [for]="input.controlName"> {{input.controlName}}</label> -->
-          <input type="text" class="form-control" placeholder={{input.controlName}}
+          <input style="margin-top: 10px" type="text" class="form-control" placeholder={{input.controlName}}* 
                  [formControlName]="input.controlName"
                  [type]="input.valueType"
                  [name]="input.controlName"
@@ -49,7 +49,8 @@
       <!-- <div class = "error" *ngIf="login == true">Invalid Password</div> -->
     </div>
   <br>
-  <a  [routerLink]="['/register']" class="customLink">Forget Password</a> 
+  <!-- [routerLink]="['/register']" class="btn btn-info btn-lg"-->
+  <a  style = "cursor: pointer;"(click)="openModal('custom-modal-1')"  class="customLink" >Forget Password</a> 
   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a [routerLink]="['/register']" class="customLink">SignUp</a>   
 </form>
@@ -57,3 +58,15 @@
 </div>
 </div>
 </div>
+<!-- <modal id="custom-modal-1">
+  <div class="modal">
+    <div class="modal-body">
+        <h1>A Custom Modal!</h1>
+        <p>
+            Home page text: <input type="text" [(ngModel)]="bodyText" />
+        </p>
+        <button (click)="closeModal('custom-modal-1');">Close</button>
+    </div>
+</div>
+<div class="modal-background"></div>
+</modal> -->

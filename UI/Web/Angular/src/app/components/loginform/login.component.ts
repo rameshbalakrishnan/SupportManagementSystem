@@ -63,7 +63,13 @@ export class LoginComponent implements OnInit {
           }
          else if(this.list[0].role === 2)
           {
-          this.router.navigate(['/user'])
+            console.log(this.list[0].firstName);
+          this.router.navigate(['/user'],{
+            queryParams : {
+                firstname : this.list[0].firstName,
+                lastname : this.list[0].lastName
+            }
+          });
           }
           else if(this.list[0].role === 3)
           {
@@ -78,4 +84,11 @@ export class LoginComponent implements OnInit {
     //console.log('login');
     this.router.navigate(['/register'])
   }
+  openModal(id: string) {
+    // this.modalService.open(id);
+}
+
+closeModal(id: string) {
+    // this.modalService.close(id);
+}
 }

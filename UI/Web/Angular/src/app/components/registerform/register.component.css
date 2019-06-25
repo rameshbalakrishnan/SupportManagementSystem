@@ -1,3 +1,10 @@
 .container-fluid {
   margin-bottom: 0 !important;
 }
+.btn-block {
+  margin-left: 25px!important
+}
+.loginpanel
+  {
+    margin-top: 4% !important;  
+  }

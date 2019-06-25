@@ -10,9 +10,15 @@ import { RequestService } from 'src/app/shared/service/requestservice';
 })
 export class UserComponent implements OnInit {
   Userlist:any;
-  constructor(private router: Router,private ReqService: RequestService) {}
+  Firstname : string;
+  Lastname : string;
+  constructor(private router: Router,private ReqService: RequestService,private routeparams: ActivatedRoute) {}
 
   ngOnInit() {
+    this.routeparams.queryParams.subscribe(params => {
+      this.Firstname = params['firstname'];
+      this.Lastname = params['lastname']
+    });
     this.ReqService.UserRequestSelectAll().subscribe(
       data => {
         console.log(data);

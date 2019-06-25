@@ -59,7 +59,10 @@ this.form.patchValue({firstName : this.List.enityList[0].firstName,LastName : th
         });  
 }
     
-
+onBack()
+{
+  this.router.navigate(['userlist'])
+}
   submitForm() {
      this.submitted = true;
      if (this.form.invalid) {
@@ -72,7 +75,7 @@ this.form.patchValue({firstName : this.List.enityList[0].firstName,LastName : th
             console.log(data);
             console.log('udpated successfully');
             this.form.patchValue({firstName : '',LastName : '',Email : '',Mobile : ''});
-            this.router.navigate(['admin'], {
+            this.router.navigate(['admindashboard'], {
                 queryParams: {
                   Updatelist:  1
                 }

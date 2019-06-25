@@ -20,8 +20,8 @@
   <div class="collapse navbar-collapse" id="myNavbar">
                                <img class= "src" src="./assets/logo.png" alt="logo" />
     <ul class="nav navbar-nav navbar-right">
-              <li><a (click)="onBack()"><span class="glyphicon glyphicon-log-in">&nbsp;</span>Back</a></li>
-      <li><a (click)="onLogout()"><span class="glyphicon glyphicon-log-in">&nbsp;</span>Logout </a></li>
+              <li><a (click)="onBack()"  style = "cursor: pointer;">Back</a></li>
+      <li><a (click)="onLogout()"  style = "cursor: pointer;"><span class="glyphicon glyphicon-log-in">&nbsp;</span>Logout </a></li>
     </ul>
   </div>
 </nav>
@@ -29,8 +29,8 @@
 <div class="container-fluid text-center">    
 <div class="row content">
   <div class="col-sm-1 sidenav">
-    <p><a href="#">Home</a></p>
-    <p><a (click)="onMyAssignRequestTicketList()">Request</a></p>
+    <p><a href="">Home</a></p>
+    <!-- <p><a (click)="onRequestTicketList()" >Request</a></p> -->
   </div>
   <div class="col-sm-11 text-center">
               <div *ngIf="Userlist.enityList.length > 0" > 

@@ -32,7 +32,11 @@ export class AdminDasboardComponent implements OnInit {
   }
   onRequestTicketList()
   {
-    //this.router.navigate(['/register'])
+    this.ReqService.AdminRequestSelectAll().subscribe(
+      data => {
+        console.log(data);
+        this.Userlist = data;
+       });
   }
   onLogout()
   {

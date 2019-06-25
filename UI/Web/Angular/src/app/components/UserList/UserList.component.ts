@@ -64,7 +64,12 @@ export class UserListComponent implements OnInit {
   }
   onRequestTicketList()
   {
-    //this.router.navigate(['/register'])s
+    this.RegService.SelectAll().subscribe(
+      data => {
+        console.log(data);
+        this.Userlist = data;
+        console.log(this.Userlist.enityList.length);
+       });
   }
   onLogout()
   {
