@@ -1,13 +1,23 @@
-<!-- <div clasee = .auth.auth-bg-1></div> -->
-<form [formGroup]="form" (submit)="submitForm()">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-3 text-center loginpanel"> 
+        <div class="wrapper text-center">
+            <h2 class="form-signin-heading">Login</h2>
+
+              <form [formGroup]="form"  class="form-signin text-center" (submit)="submitForm()">
 
   <ng-template ngFor let-input [ngForOf]="formData" >
 
     <ng-container [ngSwitch]="input.controlType">
       <ng-template [ngSwitchCase]="'text'">
-        <div class="form-group">
-          <label [for]="input.controlName"> {{input.controlName}}</label>
-          <input [formControlName]="input.controlName"
+        <div>
+          <!-- <label [for]="input.controlName"> {{input.controlName}}</label> -->
+          <input type="text" class="form-control" placeholder={{input.controlName}}
+                 [formControlName]="input.controlName"
                  [type]="input.valueType"
                  [name]="input.controlName"
                  [id]="input.controlName"
@@ -27,23 +37,23 @@
       </div>
         </div>
       </ng-template>
-
     </ng-container>
-
   </ng-template>
-  <!-- [disabled]="form.invalid" -->
-  <table><tr><td>
-    <button type="submit" >
-      Submit
+  <label class="checkbox">
+      <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+    </label>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" >
+      Login
     </button>
     <div *ngIf="submitted">
       <!-- <div class = "error" *ngIf="login == true">Invalid Password</div> -->
     </div>
-  </td>
-<td>
-    <button  type = "submit" (click)="onRegister()">Register</button>
-    <!-- <a [routerLink]="['/register']" type = "submit" >Register</a>  -->
-</td></tr></table>
-  
+  <br>
+  <a  [routerLink]="['/register']" class="customLink">Forget Password</a> 
+  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a [routerLink]="['/register']" class="customLink">SignUp</a>   
 </form>
-<!-- </div> -->
+</div>
+</div>
+</div>
+</div>

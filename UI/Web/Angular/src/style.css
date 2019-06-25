@@ -1,3 +1,116 @@
-h1{
-    color: blue;
+
+.collapse navbar-collapse{
+    background-color: red !important;
 }
+.navbar-inverse {
+background-color:rgb(10, 8, 131) !important;
+height: 50px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ecdb8c !important;
+  }
+  .src
+  {
+    height: 40px!important;
+    background-color: white;
+    position: relative;
+    text-align: -webkit-center;
+    padding-left: 0.5px;
+    width: 200px
+    
+  }
+  .col-sm-3
+  {
+      align-content: center !important;
+  }
+  .footer[_ngcontent-aqf-c0]
+  {
+    background-color:rgb(10, 8, 131) !important;  
+
+  }
+  .blockquote footer
+{
+    background-color:rgb(10, 8, 131) !important;  
+}
+.foot{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    color:  #ecdb8c!important; 
+    background-color:rgb(6, 5, 63)!important; 
+}
+.customLink, .customLink:hover{
+    color: red;
+  }
+  .navbar {
+    margin-bottom: 0!important;
+    border-radius: 0;
+  }
+  
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {
+    height: 500px!important; 
+    left: 0px !important;
+  }
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+    text-align: left;
+  }
+  
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: rgb(85, 85, 85);
+    color: white;
+    padding: 15px;
+    float: bottom !important;
+  }
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 400px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }
+  /* #ca9ff1 */
+  .loginpanel
+  {   
+   margin-left: 38%;
+	  margin-top: 8%;
+	  border: 1px solid #337ab7;
+	  padding: 47px;
+	  border-radius: 20px;
+	  background-color :white
+  }
+  .error {
+    font-style: italic;
+    color: red
+  }
+  *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: 50px;
+    text-shadow: blue;
+    -webkit-box-flex: 50px;
+    /* margin-bottom: 2%; */
+  }
+  .table{
+    vertical-align: center!important;
+  }
+  .table>tbody>tr>td
+  {
+  text-align: left!important;
+  }
+  .table>thead>tr>th{
+    text-align: left!important;
+  }
+  .container-fluid {
+    margin-bottom: 0 !important;
+  }
