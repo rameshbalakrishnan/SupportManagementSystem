@@ -26,7 +26,6 @@ export class UserListComponent implements OnInit {
     });
     this.RegService.SelectAll().subscribe(
       data => {
-        console.log(data);
         this.Userlist = data;
         console.log(this.Userlist.enityList.length);
        });
@@ -35,30 +34,27 @@ export class UserListComponent implements OnInit {
   {
     this.RegService.SelectAll().subscribe(
         data => {
-          console.log(data);
           this.Userlist = data;
           console.log(this.Userlist.enityList.length);
          });
   }
-  onDelete(email)
+  onDelete(_id)
   {
-    this.RegService.delete(email).subscribe(
+    this.RegService.delete(_id).subscribe(
       data => {
         this.RegService.SelectAll().subscribe(
           data => {
-            console.log(data);
             this.Userlist = data;
             console.log(this.Userlist.enityList.length);
            });
            this.Msg = true;
        });
   }
-  onUpdate(email)
+  onUpdate(_id)
   {
-    console.log(email);
     this.router.navigate(['useredit'], {
       queryParams: {
-        email:  email
+        _id:  _id
       }
     });
   }
@@ -66,7 +62,6 @@ export class UserListComponent implements OnInit {
   {
     this.RegService.SelectAll().subscribe(
       data => {
-        console.log(data);
         this.Userlist = data;
         console.log(this.Userlist.enityList.length);
        });
@@ -78,5 +73,23 @@ export class UserListComponent implements OnInit {
   onBack()
   {
     this.router.navigate(['/admindashboard']) 
+  }
+  onNewUser()
+  {
+    this.router.navigate(['/register'],{
+      queryParams: {
+            list: 'list'
+      }
+    }
+    ) 
+  }
+  onview(_id)
+  {
+    this.router.navigate(['/profile'],{
+      queryParams : {
+          _id : _id,
+          userlist : 'userlist'
+      }
+    });
   }
 }

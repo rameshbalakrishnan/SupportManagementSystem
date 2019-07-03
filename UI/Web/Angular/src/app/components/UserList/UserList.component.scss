@@ -1,3 +1,17 @@
 .row.content { 
   height:679px!important;
 } 
+.col-md-2{
+  float: right!important;
+  margin-top: 1% !important;
+  margin-right: 0% !important;
+  box-sizing: 1px !important
+}
+.btn-block {
+  width: 50% !important;
+}
+.btn-group-lg>.btn, .btn-lg {
+  padding: 6px 6px !important;
+  font-size: 14px !important;
+  border-radius: 6px !important;
+}

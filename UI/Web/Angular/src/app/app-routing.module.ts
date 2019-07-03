@@ -10,6 +10,11 @@ import { UserEditComponent } from './components/UserEdit/useredit.component';
 import { AdminDasboardComponent } from './components/admindashboard/admindashboard.component';
 import { UserListComponent } from './components/UserList/UserList.component';
 import { AdminDasboardoOldComponent } from './components/admindashboard old/admindashboard.component';
+import { ChangePasswordComponent } from './components/changepassword/changepassword.component';
+import { RequestComponent } from './components/requestform/requestform.component';
+import { RequestEditComponent } from './components/requestedit/requestedit.component';
+import { ProfileComponent } from './components/Profile/profile.component';
+import { ProfileEditComponent } from './components/profileedit/profileedit.component';
 //import { AuthGuard } from './auth.guard';
 const routes: Routes = [
    // { path: '', component: LoginComponent },
@@ -21,7 +26,12 @@ const routes: Routes = [
    { path: "useredit", component: UserEditComponent},
    { path: "admindashboard" , component: AdminDasboardComponent},
    { path: "userlist", component: UserListComponent},
-   { path: "admindashboardold",component:AdminDasboardoOldComponent}
+   { path: "admindashboardold",component:AdminDasboardoOldComponent},
+   { path: "changepassword",component:ChangePasswordComponent},
+   { path: "request",component:RequestComponent},
+   { path: "requestedit",component:RequestEditComponent},
+   { path: "profile", component:ProfileComponent},
+   { path: "profileedit", component:ProfileEditComponent}
    // { path: '**', redirectTo: '' }//,
 ];
 //RouterModule.forRoot(routes)

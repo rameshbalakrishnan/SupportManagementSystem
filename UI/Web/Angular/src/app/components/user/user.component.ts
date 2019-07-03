@@ -12,25 +12,37 @@ export class UserComponent implements OnInit {
   Userlist:any;
   Firstname : string;
   Lastname : string;
+  _id : any;
   constructor(private router: Router,private ReqService: RequestService,private routeparams: ActivatedRoute) {}
 
   ngOnInit() {
     this.routeparams.queryParams.subscribe(params => {
       this.Firstname = params['firstname'];
-      this.Lastname = params['lastname']
+      this.Lastname = params['lastname'];
+      this._id = params['_id'];
     });
     this.ReqService.UserRequestSelectAll().subscribe(
       data => {
-        console.log(data);
         this.Userlist = data;
        });
   }
   onMyRequestTicketList()
   {
-    //this.router.navigate(['/register'])
+    this.ReqService.UserRequestSelectAll().subscribe(
+      data => {
+        this.Userlist = data;
+       });
   }
   onLogout()
   {
       this.router.navigate(['/login'])
+  }
+  onProfileView()
+  {
+    this.router.navigate(['/profile'],{
+      queryParams : {
+        _id : this._id
+      }
+    });
   }
 }

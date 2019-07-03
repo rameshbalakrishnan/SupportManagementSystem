@@ -6,5 +6,9 @@
 }
 .loginpanel
   {
-    margin-top: 4% !important;  
+    margin-top: 2% !important;  
   }
+  .row.content { 
+    height:679px!important;
+  } 
+ 

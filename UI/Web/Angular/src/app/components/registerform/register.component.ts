@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
  EmailValue : any;
  MobileValue : any;
  Email :any;
+ Cmt:any;
  returndata:any;
   Emailexitst : boolean;
   Mobileexitst : boolean;
@@ -53,6 +54,9 @@ export class RegisterComponent implements OnInit {
       formGroup[formControl.controlName] = new FormControl('');
     });
     this.form = new FormGroup(formGroup);
+    this.routeparams.queryParams.subscribe(params => {
+      this.Cmt = params['list'];
+      });  
   }
 
   submitForm() {
@@ -65,7 +69,12 @@ export class RegisterComponent implements OnInit {
          this.RegService.register(this.form.value).subscribe(
         data => {
        this.returndata = data;
-       if(this.returndata.responsecode === 1){
+       if(this.Cmt === 'list')
+       {
+         this.router.navigate(['/userlist']);
+         return;
+       }
+       else if(this.returndata.responsecode === 1){
         this.Register = true;
         this.router.navigate(['/login'])
        }else if(this.returndata.responsecode === 2){
@@ -85,6 +94,7 @@ export class RegisterComponent implements OnInit {
   }
   onClear()
   {
+    this.form.reset();
   }
   onBack()
   {

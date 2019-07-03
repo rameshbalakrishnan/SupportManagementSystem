@@ -1,0 +1,149 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">    
+<!------ Include the above in your HEAD tag ---------->
+<nav class="navbar navbar-inverse">
+  
+  <div class="collapse navbar-collapse" id="myNavbar">
+                               <img class = "src" src="./assets/logo.png" alt="logo" />
+    <ul class="nav navbar-nav navbar-right">
+              <!-- <li><a href="#"  style = "cursor: pointer;">Welcome Admin </a></li> -->
+      <li><a style = "cursor: pointer;" (click)="onLogout()"  ><span class="glyphicon glyphicon-log-out">&nbsp;</span>Logout </a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">    
+<div class="row content">
+  <div class="col-sm-2 sidenav">
+    <p><a style = "cursor: pointer" (click)="onHome()" ><span style="font-size:16px;" class="pull-left hidden-xs showopacity glyphicon glyphicon-home">&nbsp;</span>Home</a></p>
+    <br>
+    <p><a style = "cursor: pointer;" (click)="onUpdate(this.List.enityList[0]._id)"><span style="font-size:16px;" class="pull-left hidden-xs showopacity glyphicon glyphicon-pencil">&nbsp;</span>Edit Profile</a></p>
+    <br>
+    <p><a style = "cursor: pointer;" (click)="onChangePassword(this.List.enityList[0]._id)"><span style="font-size:16px;" class="pull-left hidden-xs showopacity glyphicon glyphicon-lock">&nbsp;</span>Change Password</a></p>
+  </div>
+<div class="col-sm-10 text-center">
+        <br>
+        <br>
+        <br>
+            <form>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="profile-head">
+                                    <h3 class="text-uppercase">
+                                            {{this.List.enityList[0].firstName}} {{this.List.enityList[0].lastName}}
+                                    </h3>
+                                    <h6>
+                                        Web Developer and Designer
+                                    </h6>
+                                    <p class="proile-rating"></p>
+                 
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-2">
+                         <button class="btn btn-lg btn-primary btn-block text-right" ">Edit Profile</button>
+                            <button class="btn btn-lg btn-primary btn-block text-right" (click)="onBack()">Back</button> -->
+                    <!-- </div>
+                    <div class="col-md-2"> -->
+                                <!-- <button class="btn btn-lg btn-primary btn-block text-right" (click)="onNewUser()">Edit Profile</button> -->
+                            <!-- </div> -->
+                            
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- <div class="profile-work">
+                            <p>WORK LINK</p>
+                            <a href="">Website Link</a><br/>
+                            <a href="">Bootsnipp Profile</a><br/>
+                            <a href="">Bootply Profile</a>
+                            <p>SKILLS</p>
+                            <a href="">Web Designer</a><br/>
+                            <a href="">Web Developer</a><br/>
+                            <a href="">WordPress</a><br/>
+                            <a href="">WooCommerce</a><br/>
+                            <a href="">PHP, .Net</a><br/>
+                        </div> -->
+                    </div>
+                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-3 text-left">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-3  text-left">
+                                                <p>105</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3 text-left">
+                                                <label> First Name</label>
+                                            </div>
+                                            <div class="col-md-3  text-left">
+                                                <p>{{this.List.enityList[0].firstName}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-md-3 text-left">
+                                                    <label> Last Name</label>
+                                                </div>
+                                                <div class="col-md-3  text-left">
+                                                    <p>{{this.List.enityList[0].lastName}}</p>
+                                                </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="col-md-3 text-left">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-3  text-left">
+                                                <p>{{this.List.enityList[0].email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3 text-left">
+                                                <label >Phone</label>
+                                            </div>
+                                            <div class="col-md-3  text-left">
+                                                <p>{{this.List.enityList[0].mobile}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3 text-left">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-3  text-left">
+                                                <p>Web Developer and Designer</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <br>
+                                            <br>
+                                                <div class= "col-sm-3">
+                                                    <button (click)="onUpdate(this.List.enityList[0]._id)" class="btn btn-lg btn-primary btn-block">
+                                                            Edit Profile
+                                                      </button>
+                                                </div>
+                                                <div class= "col-sm-3">
+                                                    <button (click)="onBack()" class="btn btn-lg btn-primary btn-block">
+                                                            Back
+                                                      </button>
+                                                </div>
+                                                </div> 
+                    </div>
+                    <!-- form-signin text-center -->
+                   
+                </div>
+               
+            </form>           
+        </div>
+       </div>
+    </div>
+        <footer class="foot">
+                <p>Got it!This website uses cookies to ensure you get the best experience on our website</p>
+              </footer>

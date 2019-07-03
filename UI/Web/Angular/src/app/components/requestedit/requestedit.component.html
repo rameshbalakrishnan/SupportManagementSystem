@@ -16,16 +16,19 @@
       <div class="collapse navbar-collapse" id="myNavbar">
                                    <img class= "src" src="./assets/logo.png" alt="logo" />
         <ul class="nav navbar-nav navbar-right">
-          <li><a style = "cursor: pointer;" (click)="onLogin()"  ><span class="glyphicon glyphicon-log-in">&nbsp;</span>Login </a></li>
+          <li><a style = "cursor: pointer;" (click)="onLogin()"  ><span class="glyphicon glyphicon-log-out">&nbsp;</span>Login </a></li>
           
         </ul>
       </div>
   </nav>
     <div class="container-fluid text-center">    
         <div class="row content">
+            <div class="col-sm-1 sidenav">
+                <p><a style = "cursor: pointer;" (click)="onRequestTicketList()" ><span style="font-size:16px;" class="pull-left hidden-xs showopacity glyphicon glyphicon-home">&nbsp;</span>Home</a></p>
+              </div>
           <div class="col-sm-3 text-center loginpanel"> 
               <div class="wrapper text-center">
-                  <h2 class="form-signin-heading">New Registration</h2>
+                  <h2 class="form-signin-heading">Request Edit</h2>
       
  <form [formGroup]="form"  class="form-signin text-center" (submit)="submitForm()">
     <ng-template ngFor let-input [ngForOf]="formData">
@@ -63,44 +66,39 @@
     </ng-template>
     <!-- [disabled]="form.invalid" -->
     <br>
-      <div class ="row">
+    <div class ="row">
         <div class= "col-sm-4">
             <button type="submit" class="btn btn-lg btn-primary btn-block">
-                Submit
+                Edit
               </button>
         </div>
-        <div class= "col-sm-3">
-            <button (click) = "onClear()" class="btn btn-lg btn-primary btn-block">
-                Clear
+        <div class= "col-sm-4">
+            <button (click)= "onBack()" class="btn btn-lg btn-primary btn-block">
+                Cancel
               </button>
         </div>
-        <div class= "col-sm-3">
+        <!-- <div class= "col-sm-3">
             <button (click)= "onBack()" class="btn btn-lg btn-primary btn-block">
                 Back
               </button>
+        </div> -->
         </div>
     <!-- <table>
       <tr>
+            &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
         <td>
             <button type="submit" class="btn btn-lg btn-primary btn-block">
-                submit
-              </button>
-        </td>
-        &nbsp;
-        <td>
-            <button (click) = "onClear()" class="btn btn-lg btn-primary btn-block">
-                Clear
+                Edit
               </button>
         </td>
         &nbsp;
         <td>
             <button (click)= "onBack()" class="btn btn-lg btn-primary btn-block">
-                Back
+                Cancel
               </button>
         </td>
       </tr>
   </table> -->
-</div>
     <div *ngIf="submitted">
       <div class = "error" *ngIf="Register == true">Registration Success</div>
     </div>
@@ -113,5 +111,5 @@
 </div>
 </div>
 <footer class="foot">
-  <p>Got it!This website uses cookies to ensure you get the best experience on our website</p>
-</footer>
+    <p>Got it!This website uses cookies to ensure you get the best experience on our website</p>
+  </footer> 

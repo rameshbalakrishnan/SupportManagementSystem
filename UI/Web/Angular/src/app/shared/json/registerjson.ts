@@ -1,12 +1,12 @@
+// import {ControlGroup} from '@angular/common';
 import { FormData } from './../interface/form-data';
 
 export const RegisterForm: FormData[] = [
-  
     {
-      controlName: 'FirstName',
+      controlName: 'First Name',
       controlType: 'text',
       valueType: 'text',
-      placeholder: 'Enter First Name',
+      placeholder: 'First Name',
       validators: {
         required: true,
         maxlength: 50,
@@ -15,10 +15,10 @@ export const RegisterForm: FormData[] = [
       }
     },
     {
-      controlName: 'LastName',
+      controlName: 'Last Name',
       controlType: 'text',
       valueType: 'text',
-      placeholder: 'Enter Last Name',
+      placeholder: 'Last Name',
       validators: {
         required: true,
         maxlength: 50,
@@ -30,7 +30,7 @@ export const RegisterForm: FormData[] = [
       controlName: 'Email',
       controlType: 'text',
       valueType: 'text',
-      placeholder: 'Enter Email Address',
+      placeholder: 'Email Address',
       validators: {
         required: true,
         pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/,
@@ -41,7 +41,7 @@ export const RegisterForm: FormData[] = [
     controlName: 'Mobile',
     controlType: 'text',
     valueType: 'text',
-    placeholder: 'Enter Mobile Number',
+    placeholder: 'Mobile Number',
     validators: {
       required: true,
       maxlength: 10,
@@ -51,7 +51,7 @@ export const RegisterForm: FormData[] = [
   },
     {
       controlName: 'Password',
-      placeholder: ' Enter Password',
+      placeholder: 'Password',
       valueType: 'password',
       controlType: 'text',
       validators: {
@@ -61,12 +61,27 @@ export const RegisterForm: FormData[] = [
     },
     {
       controlName: 'Confirm Password',
-      placeholder: ' Enter Confirm Password',
-      valueType: 'Confirmpassword',
+      placeholder: 'Confirm Password',
+      valueType: 'password',
       controlType: 'text',
       validators: {
         required: true,
-        minlength: 6
+        minlength: 6,
+        //  mismatch :matchingPasswords('Password', 'Confirm Password') 
       }
     }
   ];
+//   export function matchingPasswords(passwordKey: string, confirmPasswordKey: string) {
+//     return (group: ControlGroup): {
+//         [key: string]: any
+//     } => {
+//         let password = group.controls[passwordKey];
+//         let confirmPassword = group.controls[confirmPasswordKey];
+
+//         if (password.value !== confirmPassword.value) {
+//             return {
+//                 mismatchedPasswords: true
+//             };
+//         }
+//     }
+// }

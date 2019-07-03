@@ -47,11 +47,11 @@ namespace API.Service.Controllers
         //Get Id
         [HttpGet]
         [Route("getid")]
-        public ResponseEntity<Users> GetbyID(ObjectId id)
+        public ResponseEntity<Users> GetbyID(string _id)
         {
             try
             {
-                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x => x.InternalId == id) };
+                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x => x._id == _id) };
             }
             catch (Exception)
             {
@@ -88,12 +88,12 @@ namespace API.Service.Controllers
         }
          //Get EmailId
         [HttpPost]
-         [Route("GetbyEmailID")]
-        public ResponseEntity<Users> GetbyEmailID([FromBody]Users userdata)
+         [Route("GetbyID")]
+        public ResponseEntity<Users> GetbyUniqueID([FromBody]Users userdata)
         {
             try
             {
-                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x => x.Email == userdata.Email) };
+                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = _accountRepository.FindByCondition(x => x._id == userdata._id) };
             }
             catch (Exception)
             {
@@ -240,7 +240,25 @@ namespace API.Service.Controllers
             {
                 var update = Builders<Users>.Update
              .Set(it => it.ModifiedDate, DateTime.Now).Set(it => it.Email,userdata.Email).Set(it => it.FirstName,userdata.FirstName).Set(it => it.LastName,userdata.LastName).Set(it => it.Mobile,userdata.Mobile);
-                _accountRepository.Update(x => x.Email == userdata.Email, update);
+                _accountRepository.Update(x => x._id == userdata._id, update);
+                return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = null };
+            }
+            catch (Exception)
+            {
+                return new ResponseEntity<Users> { Responsecode = 0, ResponseMessage = "Error during Updating records!", Entity = null, EnityList = null };
+            }
+        }
+        //ChangePassword
+        [HttpPut]
+        [Route("changepassword")]
+        public ResponseEntity<Users> changepassword([FromBody]Users userdata)
+        {
+            try
+            {
+                var password = Encrypt(userdata.Password);
+                userdata.Password = password;
+                var update = Builders<Users>.Update.Set(it => it.Password,userdata.Password);
+                _accountRepository.Update(x => x.Email == userdata._id, update);
                 return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = null };
             }
             catch (Exception)
@@ -257,7 +275,7 @@ namespace API.Service.Controllers
             try
             {
 
-                _accountRepository.Delete(x => x.Email == userdata.Email);
+                _accountRepository.Delete(x => x._id == userdata._id);
 
                 return new ResponseEntity<Users> { Responsecode = 1, ResponseMessage = "Success!", Entity = null, EnityList = null };
             }
@@ -270,7 +288,7 @@ namespace API.Service.Controllers
         //Bulk Insertion
         [HttpPost]
         [Route("bulkinsert")]
-        public ResponseEntity<Users> bulkinsert([FromBody]IEnumerable<Users> userdata)
+        public ResponseEntity<Users> bulkinsert([FromBody]IEnumerable<Users> userdata,string _id)
         {
             try
             {

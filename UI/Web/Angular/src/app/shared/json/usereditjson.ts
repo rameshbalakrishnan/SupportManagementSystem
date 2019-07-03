@@ -3,10 +3,10 @@ import { FormData } from './../interface/form-data';
 export const UserEditForm: FormData[] = [
   
     {
-      controlName: 'firstName',
+      controlName: 'FirstName',
       controlType: 'text',
       valueType: 'text',
-      placeholder: 'Enter First Name',
+      placeholder: 'First Name',
       validators: {
         required: true,
         maxlength: 50,
@@ -18,7 +18,7 @@ export const UserEditForm: FormData[] = [
       controlName: 'LastName',
       controlType: 'text',
       valueType: 'text',
-      placeholder: 'Enter Last Name',
+      placeholder: 'Last Name',
       validators: {
         required: true,
         maxlength: 50,
@@ -30,7 +30,7 @@ export const UserEditForm: FormData[] = [
       controlName: 'Email',
       controlType: 'text',
       valueType: 'text',
-      placeholder: 'Enter Email Address',
+      placeholder: 'Email Address',
       validators: {
         required: true,
         pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/,
@@ -41,7 +41,7 @@ export const UserEditForm: FormData[] = [
     controlName: 'Mobile',
     controlType: 'text',
     valueType: 'text',
-    placeholder: 'Enter Mobile Number',
+    placeholder: 'Mobile Number',
     validators: {
       required: true,
       maxlength: 10,

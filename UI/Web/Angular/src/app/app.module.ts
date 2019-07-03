@@ -17,6 +17,11 @@ import { AdminDasboardComponent } from './components/admindashboard/admindashboa
 import { UserListComponent } from './components/UserList/UserList.component';
 import { AdminDasboardoOldComponent } from './components/admindashboard old/admindashboard.component';
 import { RequestService } from './shared/service/requestservice';
+import { ChangePasswordComponent } from './components/changepassword/changepassword.component';
+import { RequestEditComponent } from './components/requestedit/requestedit.component';
+import { RequestComponent } from './components/requestform/requestform.component';
+import { ProfileComponent } from './components/Profile/profile.component';
+import { ProfileEditComponent } from './components/profileedit/profileedit.component';
 //import { AuthService } from './auth.service';
 //import { AuthGuard } from './auth.guard';
 
@@ -38,20 +43,30 @@ import { RequestService } from './shared/service/requestservice';
     UserEditComponent,
     AdminDasboardComponent,
     UserListComponent,
-    AdminDasboardoOldComponent
+    AdminDasboardoOldComponent,
+    ChangePasswordComponent,
+    RequestEditComponent,
+    RequestComponent,
+    ProfileComponent,
+    ProfileEditComponent
   ],
   entryComponents: [
     LoginComponent,
     RegisterComponent,
     AdminComponent,
     UserComponent,
-    SupportEngineerComponent
+    SupportEngineerComponent,
+    ChangePasswordComponent,
+    RequestEditComponent,
+    RequestComponent,
+    ProfileComponent,
+    ProfileEditComponent
 ],
   imports: [
     RouterModule,
     AppRoutingModule,
     BrowserModule,
-    FormsModule,
+    FormsModule,  
     ReactiveFormsModule,
     HttpClientModule
     // ,

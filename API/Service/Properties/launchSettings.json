@@ -19,7 +19,7 @@
     "NotebookAppApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000/api/notes",
+      "launchUrl": "http://192.168.2.24:9001/api/notes",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

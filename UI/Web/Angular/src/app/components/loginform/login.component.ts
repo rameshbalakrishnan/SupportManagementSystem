@@ -4,6 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router,ActivatedRoute ,Params} from '@angular/router';
 import { LoginService } from 'src/app/shared/service/loginservice';
+import { RegisterComponent } from '../registerform/register.component';
 @Component({
   selector: 'app-loginform',
   template: `
@@ -42,7 +43,6 @@ export class LoginComponent implements OnInit {
       return;
   }
   else{
-    console.log('hianu');
     this.LogService.login(this.form.value).subscribe(
       data => {
         console.log(data);
@@ -59,7 +59,13 @@ export class LoginComponent implements OnInit {
            }
          else if(this.list[0].role === 1)
           {
-          this.router.navigate(['/admindashboard'])//admin
+          this.router.navigate(['/admindashboard'],{
+            queryParams : {
+                firstname : this.list[0].firstName,
+                lastname : this.list[0].lastName,
+                _id : this.list[0]._id
+            }
+          });//admin
           }
          else if(this.list[0].role === 2)
           {
@@ -67,13 +73,20 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/user'],{
             queryParams : {
                 firstname : this.list[0].firstName,
-                lastname : this.list[0].lastName
+                lastname : this.list[0].lastName,
+                _id : this.list[0]._id
             }
           });
           }
           else if(this.list[0].role === 3)
           {
-            this.router.navigate(['/supportengineer'])
+            this.router.navigate(['/supportengineer'],{
+              queryParams : {
+                  firstname : this.list[0].firstName,
+                  lastname : this.list[0].lastName,
+                  _id : this.list[0]._id
+              }
+            });
           }
          }
        });
@@ -81,7 +94,6 @@ export class LoginComponent implements OnInit {
   }
   onRegister()
   {
-    //console.log('login');
     this.router.navigate(['/register'])
   }
   openModal(id: string) {

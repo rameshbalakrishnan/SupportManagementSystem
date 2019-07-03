@@ -5,7 +5,7 @@ export const LoginForm: FormData[] = [
     controlName: 'Email',
     controlType: 'text',
     valueType: 'text',
-    placeholder: 'Enter Email Address',
+    placeholder: 'Email',
     validators: {
       required: true,
       pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$/,
@@ -14,7 +14,7 @@ export const LoginForm: FormData[] = [
   },
   {
     controlName: 'Password',
-    placeholder: ' Enter Password',
+    placeholder: 'Password',
     valueType: 'password',
     controlType: 'text',
     validators: {

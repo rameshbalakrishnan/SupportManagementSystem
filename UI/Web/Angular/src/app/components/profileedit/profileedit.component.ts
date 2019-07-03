@@ -12,10 +12,10 @@ import { Router,ActivatedRoute ,Params} from '@angular/router';
   <app-registerform [formData]="usereditdata"></app-registerform>
    </div>
   `,
-  templateUrl: './useredit.component.html',
-  styleUrls: ['./useredit.component.css']
+  templateUrl: './profileedit.component.html',
+  styleUrls: ['./profileedit.component.scss']
 })
-export class UserEditComponent implements OnInit {
+export class ProfileEditComponent implements OnInit {
  EmailValue : any;
  MobileValue : any;
  _id :any;
@@ -46,20 +46,32 @@ export class UserEditComponent implements OnInit {
     });
     this.routeparams.queryParams.subscribe(params => {
         this._id = params['_id'];
-        console.log(params['_id']);
           this.RegService.selectId(params['_id']).subscribe(
+              
         data => {
-            console.log(data);
             this.List=data;
-            console.log(this.List);
 console.log(this.form);
-this.form.patchValue({firstName : this.List.enityList[0].firstName,LastName : this.List.enityList[0].lastName,Email : this.List.enityList[0].email,Mobile : this.List.enityList[0].mobile});
+this.form.patchValue({FirstName : this.List.enityList[0].firstName,
+  LastName : this.List.enityList[0].lastName,
+  Email : this.List.enityList[0].email,
+  Mobile : this.List.enityList[0].mobile});
          });
         });  
 }
+onHome()
+{
+}   
 onBack()
 {
-  this.router.navigate(['userlist'])
+  this.router.navigate(['profile'],{
+    queryParams :{
+    _id : this.List.enityList[0]._id
+  }
+  });
+}
+onLogin()
+{
+    this.router.navigate(['login'])
 }
   submitForm() {
      this.submitted = true;
@@ -71,18 +83,14 @@ onBack()
          this.RegService.update(this.form.value,this._id).subscribe(
         data => {
             console.log(data);
-            console.log('updated successfully');
-            this.form.patchValue({firstName : '',LastName : '',Email : '',Mobile : ''});
-            this.router.navigate(['userlist'], {
-                queryParams: {
-                  Updatelist:  1
+            console.log('udpated successfully');
+            this.form.patchValue({FirstName : '',LastName : '',Email : '',Mobile : ''});
+            this.router.navigate(['/profile'],{
+                queryParams : {
+                    _id : this.List.enityList[0]._id
                 }
               });
       });
   }
-  }
-  onLogout()
-  {
-    this.router.navigate(['/login'])
   }
 }
