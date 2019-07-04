@@ -1,7 +1,7 @@
 import { FormData } from './../../shared/interface/form-data';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router,ActivatedRoute ,Params} from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { RegisterService } from 'src/app/shared/service/registerservice';
 import { RequestService } from 'src/app/shared/service/requestservice';
 @Component({
@@ -9,11 +9,11 @@ import { RequestService } from 'src/app/shared/service/requestservice';
   styleUrls: ['./supportengineer.component.scss']
 })
 export class SupportEngineerComponent implements OnInit {
-  Firstname : string;
-  Lastname : string;
-  _id :any;
-  Userlist:any;
-  constructor(private router: Router,private ReqService: RequestService,private routeparams: ActivatedRoute) {}
+  Firstname: string;
+  Lastname: string;
+  _id: any;
+  Userlist: any;
+  constructor(private router: Router, private ReqService: RequestService, private routeparams: ActivatedRoute) { }
 
   ngOnInit() {
     this.routeparams.queryParams.subscribe(params => {
@@ -24,24 +24,21 @@ export class SupportEngineerComponent implements OnInit {
     this.ReqService.SupportEngineerRequestSelectAll().subscribe(
       data => {
         this.Userlist = data;
-       });
+      });
   }
-  onMyAssignRequestTicketList()
-  {
+  onMyAssignRequestTicketList() {
     this.ReqService.SupportEngineerRequestSelectAll().subscribe(
       data => {
         this.Userlist = data;
-       });
+      });
   }
-  onLogout()
-  {
-    this.router.navigate(['/login']) 
+  onLogout() {
+    this.router.navigate(['/login'])
   }
-  onProfileView()
-  {
-    this.router.navigate(['/profile'],{
-      queryParams : {
-        _id : this._id
+  onProfileView() {
+    this.router.navigate(['/profile'], {
+      queryParams: {
+        _id: this._id
       }
     });
   }

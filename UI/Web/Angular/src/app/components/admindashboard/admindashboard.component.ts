@@ -1,7 +1,7 @@
 import { FormData } from './../../shared/interface/form-data';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router,ActivatedRoute ,Params} from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { RegisterService } from 'src/app/shared/service/registerservice';
 import { RequestService } from 'src/app/shared/service/requestservice';
 @Component({
@@ -9,18 +9,18 @@ import { RequestService } from 'src/app/shared/service/requestservice';
   styleUrls: ['./admindashboard.component.scss']
 })
 export class AdminDasboardComponent implements OnInit {
-  Firstname : string;
-  Lastname : string;
-  _id : any;
- Userlist:any;
- ActiveUser : any;
- ActiveCount : number = 0;
- InActiveUser : any;
- InActiveCount : number = 0;
- Msg : boolean;
- UpdateMsg : boolean;
- Updatelists : any
-  constructor(private router: Router,private ReqService: RequestService,private routeparams: ActivatedRoute) {}
+  Firstname: string;
+  Lastname: string;
+  _id: any;
+  Userlist: any;
+  ActiveUser: any;
+  ActiveCount: number = 0;
+  InActiveUser: any;
+  InActiveCount: number = 0;
+  Msg: boolean;
+  UpdateMsg: boolean;
+  Updatelists: any
+  constructor(private router: Router, private ReqService: RequestService, private routeparams: ActivatedRoute) { }
 
   ngOnInit() {
     this.routeparams.queryParams.subscribe(params => {
@@ -31,45 +31,38 @@ export class AdminDasboardComponent implements OnInit {
     this.ReqService.AdminRequestSelectAll().subscribe(
       data => {
         this.Userlist = data;
-       });
+      });
   }
-  onUserList()
-  {
+  onUserList() {
     this.router.navigate(['/userlist'])
   }
-  onRequestTicketList()
-  {
+  onRequestTicketList() {
     this.ReqService.AdminRequestSelectAll().subscribe(
       data => {
         this.Userlist = data;
-       });
+      });
   }
-  onLogout()
-  {
-    this.router.navigate(['/login']) 
+  onLogout() {
+    this.router.navigate(['/login'])
   }
-  onUpdate(_id)
-  {
+  onUpdate(_id) {
     this.router.navigate(['requestedit'], {
       queryParams: {
-        _id:  _id
+        _id: _id
       }
     });
   }
-  onActiveUserList()
-  {
+  onActiveUserList() {
 
   }
-  onInActiveUserList()
-  {
-      
+  onInActiveUserList() {
+
   }
-  onProfileView()
-  {
+  onProfileView() {
     console.log(this._id);
-    this.router.navigate(['/profile'],{
-      queryParams : {
-        _id : this._id
+    this.router.navigate(['/profile'], {
+      queryParams: {
+        _id: this._id
       }
     });
   }

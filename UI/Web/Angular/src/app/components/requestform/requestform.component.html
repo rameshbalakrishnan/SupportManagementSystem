@@ -1,103 +1,96 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse">
+  <div class="navbar-header">
 
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <nav class="navbar navbar-inverse">
-      <div class="navbar-header">
-         
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-        </button>
-       
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-                                   <img class= "src" src="./assets/logo.png" alt="logo" />
-        <ul class="nav navbar-nav navbar-right">
-          <li><a style = "cursor: pointer;" (click)="onLogin()"  ><span class="glyphicon glyphicon-log-out">&nbsp;</span>Logout </a></li>
-          
-        </ul>
-      </div>
-  </nav>
-    <div class="container-fluid text-center">    
-        <div class="row content">
-            <div class="col-sm-1 sidenav">
-                <p><a style = "cursor: pointer;" (click)="onRequestTicketList()" ><span style="font-size:16px;" class="pull-left hidden-xs showopacity glyphicon glyphicon-home">&nbsp;</span>Home</a></p>
-              </div>
-          <div class="col-sm-3 text-center loginpanel"> 
-              <div class="wrapper text-center">
-                  <h2 class="form-signin-heading">New Request</h2>
-      
- <form [formGroup]="form"  class="form-signin text-center" (submit)="submitForm()">
-    <ng-template ngFor let-input [ngForOf]="formData">
-  
-      <ng-container [ngSwitch]="input.controlType">
-        <ng-template [ngSwitchCase]="'text'">
-          <div>
-            <!-- <label [for]="input.controlName"> {{input.controlName}}</label> -->
-            <input  style = "margin-top: 10px"  [formControlName]="input.controlName"  placeholder={{input.placeholder}}* class="form-control"
-                   [type]="input.valueType"
-                   [name]="input.controlName"
-                   [id]="input.controlName"
-                   [value]="input.currentValue ? input.currentValue  : ''"
-                   [required]="input.validators.required"
-                   [minlength]="input.validators.minlength"
-                   [maxlength]="input.validators.maxlength"
-                   [pattern]="input.validators.pattern"
-                   [ngClass]="{ 'is-invalid': submitted && form.get(input.controlName).errors}" />
+  </div>
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <img class="src" src="./assets/logo.png" alt="logo" />
+    <ul class="nav navbar-nav navbar-right">
+      <li><a style="cursor: pointer;" (click)="onLogin()"><span class="glyphicon glyphicon-log-out">&nbsp;</span>Logout
+        </a></li>
 
-                   <!-- <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
-                      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
-                    </select>     -->
-            <div *ngIf="submitted && form.get(input.controlName).errors" class="invalid-feedback">
-              <div class = "error" *ngIf="form.get(input.controlName).errors.required">{{input.controlName}} is required</div>
-              <div class = "error" *ngIf="form.get(input.controlName).errors.maxlength">Maximum length is {{input.validators.maxlength}}</div>
-              <div class = "error" *ngIf="form.get(input.controlName).errors.minlength">Minimum length is {{input.validators.minlength}}</div>
-              <div class = "error" *ngIf="form.get(input.controlName).errors.pattern">{{input.validators.message}}</div>
-              <div class="error" *ngIf="form.get(input.controlName).errors.mismatch"> Passwords don't match.</div>
-            </div>
-          <div *ngIf="input.controlName == 'Email'"> 
-              <div class = "error" *ngIf="Emailexitst == true">Email already Exits!</div>
-          </div>
-          <div *ngIf="input.controlName == 'Mobile'" >
-              <div class = "error" *ngIf="Mobileexitst == true">Mobile Number already Exits!</div>
-          </div>
-          </div>
-        </ng-template>
-      </ng-container>
-    </ng-template>
-    <!-- [disabled]="form.invalid" -->
-    <div class ="row">
-      <br>
-        <div class= "col-sm-4">
-            <button type="Add" class="btn btn-lg btn-primary btn-block">
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-1 sidenav">
+      <p><a style="cursor: pointer;" (click)="onRequestTicketList()"><span style="font-size:16px;"
+            class="pull-left hidden-xs showopacity glyphicon glyphicon-home">&nbsp;</span>Home</a></p>
+    </div>
+    <div class="col-sm-3 text-center loginpanel">
+      <div class="wrapper text-center">
+        <h2 class="form-signin-heading">New Request</h2>
+
+        <form [formGroup]="form" class="form-signin text-center" (submit)="submitForm()">
+          <ng-template ngFor let-input [ngForOf]="formData">
+
+            <ng-container [ngSwitch]="input.controlType">
+              <ng-template [ngSwitchCase]="'text'">
+                <div>
+                  <input style="margin-top: 10px" [formControlName]="input.controlName"
+                    placeholder={{input.placeholder}}* class="form-control" [type]="input.valueType"
+                    [name]="input.controlName" [id]="input.controlName"
+                    [value]="input.currentValue ? input.currentValue  : ''" [required]="input.validators.required"
+                    [minlength]="input.validators.minlength" [maxlength]="input.validators.maxlength"
+                    [pattern]="input.validators.pattern"
+                    [ngClass]="{ 'is-invalid': submitted && form.get(input.controlName).errors}" />
+                  <div *ngIf="submitted && form.get(input.controlName).errors" class="invalid-feedback">
+                    <div class="error" *ngIf="form.get(input.controlName).errors.required">{{input.controlName}} is
+                      required</div>
+                    <div class="error" *ngIf="form.get(input.controlName).errors.maxlength">Maximum length is
+                      {{input.validators.maxlength}}</div>
+                    <div class="error" *ngIf="form.get(input.controlName).errors.minlength">Minimum length is
+                      {{input.validators.minlength}}</div>
+                    <div class="error" *ngIf="form.get(input.controlName).errors.pattern">{{input.validators.message}}
+                    </div>
+                    <div class="error" *ngIf="form.get(input.controlName).errors.mismatch"> Passwords don't match.</div>
+                  </div>
+                  <div *ngIf="input.controlName == 'Email'">
+                    <div class="error" *ngIf="Emailexitst == true">Email already Exits!</div>
+                  </div>
+                  <div *ngIf="input.controlName == 'Mobile'">
+                    <div class="error" *ngIf="Mobileexitst == true">Mobile Number already Exits!</div>
+                  </div>
+                </div>
+              </ng-template>
+            </ng-container>
+          </ng-template>
+          <div class="row">
+            <br>
+            <div class="col-sm-4">
+              <button type="Add" class="btn btn-lg btn-primary btn-block">
                 Submit
               </button>
-        </div>
-        <div class= "col-sm-3">
-            <button (click) = "onClear()" class="btn btn-lg btn-primary btn-block">
+            </div>
+            <div class="col-sm-3">
+              <button (click)="onClear()" class="btn btn-lg btn-primary btn-block">
                 Clear
               </button>
-        </div>
-        <div class= "col-sm-3">
-            <button (click)= "onBack()" class="btn btn-lg btn-primary btn-block">
+            </div>
+            <div class="col-sm-3">
+              <button (click)="onBack()" class="btn btn-lg btn-primary btn-block">
                 Back
               </button>
-        </div>
+            </div>
+          </div>
+          <div *ngIf="submitted">
+            <div class="error" *ngIf="Register == true">Registration Success</div>
+          </div>
+          <br>
+        </form>
       </div>
-    <div *ngIf="submitted">
-      <div class = "error" *ngIf="Register == true">Registration Success</div>
     </div>
-    <br>
-  <!-- [routerLink]="['/register']" class="btn btn-info btn-lg"-->
-  <!-- <a [routerLink]="['/login']" class="customLink">Back</a>    -->
-  </form>
-</div>
-</div>
-</div>
+  </div>
 </div>
 <footer class="foot">
-    <p>Got it!This website uses cookies to ensure you get the best experience on our website</p>
-  </footer>
+  <p>Got it!This website uses cookies to ensure you get the best experience on our website</p>
+</footer>

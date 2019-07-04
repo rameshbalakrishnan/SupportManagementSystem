@@ -2,7 +2,7 @@ export interface FormData {
   controlName: string;
   controlType: string;
   valueType?: string;
-  inputType?:string,
+  inputType?: string,
   currentValue?: string;
   placeholder?: string;
   options?: Array<{
@@ -18,8 +18,8 @@ export interface FormData {
     required?: boolean;
     minlength?: number;
     maxlength?: number;
-    pattern? : any;
-    message? : string;
-    mismatch? : any;
+    pattern?: any;
+    message?: string;
+    mismatch?: any;
   };
 }

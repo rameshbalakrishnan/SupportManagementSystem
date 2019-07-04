@@ -2,7 +2,7 @@
 import { FormData } from './../interface/form-data';
 
 export const RequesteditForm: FormData[] = [
-  
+
   {
     controlName: 'RequestPriority',
     controlType: 'text',
@@ -35,13 +35,13 @@ export const RequesteditForm: FormData[] = [
       message: 'Accept only Alphabet'
     }
   },
- {
-  controlName: 'RequestModule',
-  controlType: 'text',
-  valueType: 'text',
-  placeholder: 'Request Module',
-  validators: {
-    required: true
+  {
+    controlName: 'RequestModule',
+    controlType: 'text',
+    valueType: 'text',
+    placeholder: 'Request Module',
+    validators: {
+      required: true
+    }
   }
-}
-  ];
+];

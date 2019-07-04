@@ -1,6 +1,6 @@
 import { FormData } from './../interface/form-data';
 export const LoginForm: FormData[] = [
-  
+
   {
     controlName: 'Email',
     controlType: 'text',
